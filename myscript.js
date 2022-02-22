@@ -12,9 +12,9 @@ let classLevel;
 
 let esito = document.getElementById('esito');
 
+
+
 let cell = document.getElementsByClassName('cell');
-
-
 
 
 
@@ -27,6 +27,9 @@ function difficoltáFacile() {
         container.innerHTML += `<div class="cell ${classLevel}">${i}</div>`;
     }
     esito.innerHTML = `Hai selezionato la modalitá ${difficoltá}`;
+    for(let u = 0; u < cell.length; u++) {
+        cell[u].addEventListener("click", activated);
+    }
 }
 
 function difficoltáMedia() {
@@ -38,6 +41,9 @@ function difficoltáMedia() {
         container.innerHTML += `<div class="cell ${classLevel}">${i}</div>`;
     }
     esito.innerHTML = `Hai selezionato la modalitá ${difficoltá}`;
+    for(let u = 0; u < cell.length; u++) {
+        cell[u].addEventListener("click", activated);
+    }
 }
 
 function difficoltáDifficile() {
@@ -49,6 +55,13 @@ function difficoltáDifficile() {
         container.innerHTML += `<div class="cell ${classLevel}">${i}</div>`;
     }
     esito.innerHTML = `Hai selezionato la modalitá ${difficoltá}`;
+    for(let u = 0; u < cell.length; u++) {
+        cell[u].addEventListener("click", activated);
+    }
+}
+
+function activated() {
+    this.classList.add('activated');
 }
 
 
@@ -58,13 +71,3 @@ selectFacile.addEventListener("click", difficoltáFacile);
 selectMedia.addEventListener("click", difficoltáMedia);
 
 selectDifficile.addEventListener("click", difficoltáDifficile);
-
-
-
-
-
-function activated() {
-    cell.classList.add("activated");
-}
-
-cell.addEventListener("click", activated);
